@@ -2,13 +2,15 @@
 ## El preprocesamiento es el siguiente:
 Subconjuntos.m --> Unir.m --> FiltroPasaBanda.m --> AcomodarDatos.m
 
+Nuevo: Subconjuntos.m --> Unir.m --> CAR.m --> Escalar.m --> FiltroPasaBanda.m --> AcomodarDatos.m
+
 ### Subconjuntos.m
 Se obtienen para cada archivo de cada una de las tres sesiones de cada sujeto, fs=512Hz, por lo tanto en 2.625seg son 1344 datos
 
 * Input: ejecutar ejemplo_de_carga.m
 * Output: Subaabbbb-c-d.mat, EtiMCaabbbb-c-d.mat
 * Input shape: signal registrada
-* Output shape: (n_muestrasx1344)x32 (n_muestras<=140), n_muestras
+* Output shape: (n_muestrasx1344)x32, n_muestras<=140
 
 ### Unir.m
 Unir subconjuntos para que quede uno por sesion
@@ -16,6 +18,22 @@ Unir subconjuntos para que quede uno por sesion
 * Input: Subaabbbb-c-d.mat, EtiMCaabbbb-c-d.mat
 * Output: MCaabbbb-c.mat, EtiquetasMeCaaabbbb-c.csv
 * Input shape: (n_muestrasx1344)x32 (n_muestras<=140)
+* Output shape: (n_muestrasx1344)x32
+
+### CAR.m
+Aplicar CAR (common average reference)
+
+* Input: MCaa-c.mat
+* Output: MC_CAR_aa_c.mat
+* Input shape: (n_muestrasx1344)x32
+* Output shape: (n_muestrasx1344)x32
+
+### Escalar.m
+Escalar (restar la media y dividir entre la desviacion estandar)
+
+* Input: MC_CAR_aa_c.mat
+* Output: MC_escalado_aa_c.mat
+* Input shape: (n_muestrasx1344)x32
 * Output shape: (n_muestrasx1344)x32
 
 ### FiltroPasaBanda.m
