@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%30/04/20-15/06/20
+%30/04/20-22/06/20
 %Acomodar los datos para que queden concatenados los canales
 %Input shape: (1344*n_muestras) x n_canales = (1344*n_muestras) x 32
 %Output shape: n_muestras x (1344*32=43008) = n_muestras x 43008
@@ -8,7 +8,7 @@ clear
 clc
 
 %cambiar sujeto y sesion
-load('Filtradas_15_3.mat');
+load('Filtradas_car_15_2.mat');
 n_muestras = length(signals_filtradas) / 1344;
 
 nuevo = zeros(n_muestras, 43008);
@@ -24,5 +24,5 @@ for i=1:n_muestras
 end
 
 %cambiar sujeto y sesion
-csvwrite('MeCa_15_3.csv',nuevo);
-save('MeCa_15_3.mat','nuevo');
+csvwrite('MeCa_car_15_2.csv',nuevo);
+save('MeCa_car_15_2.mat','nuevo');

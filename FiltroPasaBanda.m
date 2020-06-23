@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%30/04/20-15/06/20
+%30/04/20-22/06/20
 %Filtro pasa banda de 8-30hz
 %Se filtraran todas las señales con un solo comando
 
@@ -7,13 +7,13 @@ clear
 clc
 
 %cambiar sujeto y sesion
-load('MC_escalado_15_3.mat');
+load('MC_CAR_15_2.mat');
 fs = 512;
 
-signals_filtradas = bandpass(escalar, [8 30], fs);
+signals_filtradas = bandpass(car, [8 30], fs);
 
 %cambiar sujeto y sesion
-save('Filtradas_15_3.mat','signals_filtradas');
+save('Filtradas_car_15_2.mat','signals_filtradas');
 
 % % Esto es para graficar la diferencia de la senal y sus espectros con FFT
 % subplot(2,1,1);

@@ -1,5 +1,5 @@
 %Edgar Moises Hernandez-Gonzalez
-%20/05/20
+%20/05/20-22/06/20
 %Obtener los canales centrales y parietales
 %Input shape: n_muestras x (1344*32=43008) = n_muestras x 43008
 %Output shape: n_muestras x (1344*12=16128) = n_muestras x 16128
@@ -8,7 +8,7 @@ clear
 clc
 
 %cambiar sujeto y sesion
-load('MeCa15RMFH-3.mat');
+load('MeCa_car_01_1.mat');
 [f, c] = size(nuevo);
 
 centr_parie = zeros(f, 16128);
@@ -29,4 +29,4 @@ for i=1:f
 end
 
 %cambiar sujeto y sesion
-csvwrite('MeCaCenPar15RMFH-3.csv', centr_parie);
+csvwrite('MeCa_car_CP_01_1.csv', centr_parie);

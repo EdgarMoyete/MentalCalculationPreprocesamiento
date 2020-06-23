@@ -8,7 +8,7 @@ clear
 clc
 
 %cambiar sujeto y sesion
-load('MeCa03ATH-3.mat');
+load('MeCa_car_03_3.mat');
 [f, c] = size(nuevo);
 
 signals = zeros(7*f, 32768);
@@ -26,7 +26,7 @@ for i=1:f %muestras
 end
 
 %cambiar sujeto y sesion
-% csvwrite('VentaneoMC-15-3.csv',signals);
+csvwrite('VentaneoMeCa_car_03_3.csv',signals);
 
 function ventaneadas = ventaneo(una_muestra)
     ventaneadas = zeros(7, 1024);
